@@ -1,7 +1,8 @@
 import express from 'express';
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
 import {User} from '../schema/user.js'
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 const jwt = require('jsonwebtoken');
 
 const router = express.Router();
@@ -11,21 +12,31 @@ const createToken = (_id) =>{
 }
 
 router.post('/login',async(req,res) => {
-    res.json({mssg : 'login user'})
+
+    const {email,password} = req.body
+    try{
+        const user = await User.login(email,password)
+
+        const token = createToken(user._id)
+        res.status(200).json({email,token})
+    }
+    catch(err){
+        res.status(400).json({error:err.message});
+    }
+    
 })
 
 router.post('/signup',async(req,res) => {
 
     const {email,password,first_name,last_name,phone} = req.body
     try{
-        const user = await  User.signup(email,password,first_name,last_name,phone);
+        const user = await User.signup(email,password,first_name,last_name,phone);
         
         const token = createToken(user._id)
         res.status(200).json({email,token,first_name,last_name,phone});
     }
     catch(e){
-        console.log(e.message);
-        res.status(500).send({message:e.message});
+        res.status(400).json({error:e.message});
     }
 })
 
