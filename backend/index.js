@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 //     console.log(`App listening to port ${PORT}`);
 // });
 
-app.use('/',userRoutes);
+app.use('/user',userRoutes);
 
 mongoose
     .connect(mongoDBURL)

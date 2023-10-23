@@ -3,7 +3,7 @@ import {User} from '../schema/user.js'
 
 const router = express.Router();
 
-router.post('/add_user',async(req,res)=>{
+router.post('/new',async(req,res)=>{
     try{
         const newUser = {
             first_name : req.body.first_name,
@@ -22,7 +22,7 @@ router.post('/add_user',async(req,res)=>{
     }
 });
 
-router.get('/all_users',async(req, res)=>{
+router.get('/all',async(req, res)=>{
     try{
         const users = await User.find({})
         return res.status(200).json(users);
