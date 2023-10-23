@@ -1,4 +1,5 @@
 import { useEffect,useState } from "react"
+import UserDetails from "../components/UserDetails.js"
 
 const Home = () =>{
 
@@ -20,7 +21,7 @@ const Home = () =>{
         <div className="home">
             <div className="Users">
                 {user && user.map((user) =>(
-                    <p key = {user._id}>{user.first_name}</p>
+                    <UserDetails key={user._id} user = {user} />
                 ))}
             </div>
         </div>
