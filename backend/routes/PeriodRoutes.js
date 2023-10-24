@@ -1,7 +1,9 @@
 import express from 'express';
 import {Period} from '../schema/period.js'
+import requireAuth from '../middleware/requireAuth.js';
 
 const router = express.Router();
+router.use(requireAuth)
 
 router.post('/',async(req,res)=>{
     try{

@@ -1,27 +1,27 @@
 import { useEffect,useState } from "react"
-import UserDetails from "../components/UserDetails.js"
+import PeriodDetails from "../components/PeriodDetails.js"
 
 const Home = () =>{
 
-    const [user,setUser] = useState(null)
+    const [period,setPeriod] = useState(null)
     useEffect(() =>{
-        const fetchUsers = async () =>{
-            const response = await fetch('/user/all')
+        const fetchPeriod = async () =>{
+            const response = await fetch('/period/all')
             const  json = await response.json()
 
             if (response.ok){
-                setUser(json)
+                setPeriod(json)
             }
         }
 
-        fetchUsers()
+        fetchPeriod()
     },[])
 
     return(
         <div className="home">
             <div className="Users">
-                {user && user.map((user) =>(
-                    <UserDetails key={user._id} user = {user} />
+                {period && period.map((period) =>(
+                    <PeriodDetails key={period._id} period={period}/>
                 ))}
             </div>
         </div>
