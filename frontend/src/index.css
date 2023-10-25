@@ -34,7 +34,7 @@ header a {
   grid-template-columns: 3fr 1fr;
   gap: 100px;
 }
-.user-details {
+.period-details {
   background: #645cbb;
   border-radius: 4px;
   margin: 20px auto;
@@ -42,17 +42,17 @@ header a {
   position: relative;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
 }
-.user-details h4 {
+.period-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
   color: #d4f5ec;
 }
-.user-details p {
+.period-details p {
   margin: 0;
   font-size: 0.9em;
   color: #e0e0e0;
 }
-.user-details span {
+.period-details span {
   position: absolute;
   top: 20px;
   right: 20px;

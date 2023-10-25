@@ -1,25 +1,34 @@
-import { useEffect,useState } from "react"
+import { useEffect } from "react"
 import PeriodDetails from "../components/PeriodDetails.js"
+import {useAuthContext} from '../hooks/useAuthContext.js'
+import { usePeriodContext } from "../hooks/usePeriodContext.js"
 
 const Home = () =>{
 
-    const [period,setPeriod] = useState(null)
+    const {period,dispatch} = usePeriodContext()
+    const{user} = useAuthContext()
+
     useEffect(() =>{
         const fetchPeriod = async () =>{
-            const response = await fetch('/period/all')
+            const response = await fetch('/period/all', {
+                headers: {
+                    'Authorization':`Bearer ${user.token}`
+                }
+            })
             const  json = await response.json()
 
             if (response.ok){
-                setPeriod(json)
+                dispatch({type:'SET_PERIODS', payload:json})
             }
         }
-
-        fetchPeriod()
-    },[])
+        if(user){
+            fetchPeriod()
+        }
+    },[dispatch,user])
 
     return(
         <div className="home">
-            <div className="Users">
+            <div className="period">
                 {period && period.map((period) =>(
                     <PeriodDetails key={period._id} period={period}/>
                 ))}
