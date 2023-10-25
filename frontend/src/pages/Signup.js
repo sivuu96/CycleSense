@@ -1,7 +1,10 @@
 import {useState} from 'react'
 import { useSignup } from '../hooks/useSignup'
+import {useNavigate} from 'react-router-dom';
 
 const Signup = () => {
+
+    const navigate = useNavigate()
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [first_name,setFirstName] = useState('')
@@ -14,6 +17,7 @@ const Signup = () => {
 
         //console.log(email,password,first_name,last_name,phone)
         await signup(email,password,first_name,last_name,phone)
+        navigate('/details')
     }
 
     return(

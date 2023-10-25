@@ -4,7 +4,7 @@ import Home from './pages/Home.js'
 import Login from './pages/Login.js'
 import Signup from './pages/Signup.js'
 import NavBar from './components/Navbar.js';
-
+import AddPeriodDetails from './pages/AddPeriodDetails'
 
 function App() {
 	const {user} = useAuthContext();
@@ -26,6 +26,10 @@ function App() {
 							path = "/signup"
 							element = {!user?<Signup />:<Navigate to="/"/>}
 						/>	
+						<Route
+							path="/details"
+							element ={user?<AddPeriodDetails/>:<Navigate to="/signup" />} 
+						/>
 					</Routes>
 				</div>
 			</BrowserRouter>

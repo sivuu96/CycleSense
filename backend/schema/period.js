@@ -21,6 +21,10 @@ const periodSchema = mongoose.Schema(
         mood:{
             type:String,
             //required:true,
+        },
+        user_id:{
+            type:String,
+            required:true
         }
     },
     {
