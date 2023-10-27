@@ -59,15 +59,15 @@ const AddPeriodDetails = () => {
         <form className="create" onSubmit={handleSubmit}>
             <h3>Add Period Details</h3>
 
-            <label>Date:</label>
+            <label>When did you have your last periods: </label>
             <input 
-                type="text"
+                type="date"
                 onChange={(e) => setDate(e.target.value)}
                 value={date}
                 className={emptyFields.includes('date') ? 'error' : ''}
             />
 
-            <label>Length:</label>
+            <label>Cycle length:</label>
             <input 
                 type="number"
                 onChange={(e) => setLength(e.target.value)}
@@ -75,7 +75,7 @@ const AddPeriodDetails = () => {
                 className={emptyFields.includes('length') ? 'error' : ''}
             />
 
-            <label>Symptoms:</label>
+            <label>Usual Symptoms:</label>
             <input 
                 type="text"
                 onChange={(e) => setSymptoms(e.target.value)}
@@ -83,7 +83,7 @@ const AddPeriodDetails = () => {
                 className={emptyFields.includes('symptoms') ? 'error' : ''}
             />
 
-            <label>Menstrual Flow:</label>
+            <label>How is your Menstrual Flow:</label>
             <input 
                 type="text"
                 onChange={(e) => setMenstrual_flow(e.target.value)}
@@ -91,7 +91,7 @@ const AddPeriodDetails = () => {
                 className={emptyFields.includes('menstrual_flow') ? 'error' : ''}
             />
 
-            <label>Mood:</label>
+            <label>Usual Mood:</label>
             <input 
                 type="text"
                 onChange={(e) => setMood(e.target.value)}
