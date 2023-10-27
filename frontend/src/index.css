@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
 
 :root {
-  --primary: #1aac83;
+  --primary: #645cbb;
   --error: #e7195a;
 }
 body {
@@ -62,6 +62,9 @@ header a {
   border-radius: 50%;
   color: #333;
 }
+h1{
+  color: var(--primary);
+}
 
 label, input {
   display: block;
@@ -76,7 +79,7 @@ input {
   box-sizing: border-box;
 }
 form button {
-  background: var(--primary);
+  background: #645cbb;
   border: 0;
   color: #fff;
   padding: 10px;
@@ -105,7 +108,7 @@ nav a {
 nav button {
   background: #ffff;
   color: var(--primary);
-  border: 2px  solid var(--primary);
+  border: 2px  solid #645cbb;
   padding: 6px 10px;
   border-radius: 4px;
   font-family: "Poppins";
@@ -118,4 +121,207 @@ form.signup, form.login {
   padding: 20px;
   background: #fff;
   border-radius: 4px;
+}
+
+.react-calendar {
+  width: 750px;
+  max-width: 100%;
+  background: rgb(255, 255, 247);
+  border: 1px solid #a0a096;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 3em;
+}
+
+.react-calendar--doubleView {
+  width: 3000px;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer {
+  display: flex;
+  margin: -0.5em;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer > * {
+  width: 90%;
+  margin: 0.5em;
+}
+
+.react-calendar,
+.react-calendar *,
+.react-calendar *:before,
+.react-calendar *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.react-calendar button {
+  margin: 0;
+  border: 0;
+  outline: none;
+}
+
+.react-calendar button:enabled:hover {
+  cursor: pointer;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  height: 44px;
+  margin-bottom: 1.5em;
+}
+
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+}
+
+.react-calendar__navigation button:disabled {
+  background-color: #f0f0f0;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: #b1acec;
+}
+
+.react-calendar__navigation__label__labelText {
+  font-size: 1.4em;
+  color: #645cbb;
+  font-weight: bold;
+}
+
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font: inherit;
+  font-size: 1em;
+  font-weight: bold;
+  color: #645cbb;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  padding: 1em;
+}
+
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: inherit;
+  font-size: 0.75em;
+  font-weight: bold;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #d10000;
+}
+.react-calendar__month-view__days__day {
+  color: #26234b;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #757575;
+}
+
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+  padding: 4em 2em;
+}
+
+.react-calendar__tile {
+  max-width: 100%;
+  padding: 10px 6.6667px;
+  background: none;
+  text-align: center;
+  line-height: 16px;
+  font: inherit;
+  font-size: 1.5;
+}
+
+.react-calendar__tile:disabled {
+  background-color: #f0f0f0;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: #e6e6e6;
+}
+
+.react-calendar__tile--now {
+  background: #ffff76;
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background: #ffffa9;
+}
+
+.react-calendar__tile--hasActive {
+  background: #76baff;
+}
+
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+  background: #a9d4ff;
+}
+
+.react-calendar__tile--active {
+  background: #49d0e2ab;
+  color: white;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: #17bed4b9;
+}
+
+.react-calendar--selectRange .react-calendar__tile--hover {
+  background-color: #e6e6e6;
+}
+
+.initial-date {
+  background-color: #645cbb; 
+  color:white;
+}
+
+.initial-date:hover{
+  color:black
+}
+
+.next-day {
+  color: white;
+  background-color: #7066db;
+}
+
+.next-day:hover{
+  color:black
+}
+
+.nn-day {
+  color: white;
+  background-color: #887fec;
+}
+
+.nn-day:hover{
+  color:black
+}
+
+.nnn-day {
+  color: white;
+  background-color: #aba3f0;
+}
+
+.nnn-day:hover{
+  color:black
+}
+
+.nnnn-day {
+  color: white;
+  background-color: #c1baf3;
+}
+
+.nnnn-day:hover{
+  color:black
 }
