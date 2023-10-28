@@ -18,6 +18,12 @@ const Signup = () => {
     }
 
     return(
+        <div>
+            <div className="overflow-container">
+            <div className="circleBase circle3"></div>
+            <div className="circleBase circle2"></div>
+            <div className="circleBase circle1"></div>
+            </div>
         <form className='signup' onSubmit={handleSubmit}>
             <h3>Sign Up</h3>
 
@@ -61,6 +67,7 @@ const Signup = () => {
             </Link>
             </div>
         </form>
+        </div>
     )
 }
 
