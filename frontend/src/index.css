@@ -478,3 +478,51 @@ form.signup, form.login {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+.aboutus{
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height:60%;
+  border: 1px solid #645CBB;
+}
+.aboutus p{
+  text-align: center;
+}
+.aboutus h1{
+  text-align: center;
+}
+.downloadreport {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
+.Downloadbtn{
+  align-items: center;
+  left:95%;
+  border-radius: 5%;
+  background-color: white;
+  width:50%;
+  height:30px;
+  border: 2px solid #645CBB;
+}
+.deletebtn1{
+  align-items: center;
+  left:95%;
+  border-radius: 5%;
+  background-color: white;
+  width:45%;
+  height:30px;
+  border: 2px solid #645CBB;
+}
+.deletebtn2{
+  align-items: center;
+  left:100%;
+  border-radius: 5%;
+  background-color: white;
+  width:45%;
+  height:30px;
+  border: 2px solid #645CBB;
+}
