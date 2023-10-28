@@ -18,9 +18,13 @@ const NavBar = () => {
                 </Link>
                 <nav>
                     {user && (<div>
+<<<<<<< HEAD
                         <Link to = "/profile">
                             <span className='user-name'>{user.first_name}</span>
                         </Link>
+=======
+                        <span className='user-name'>{user.name}</span>
+>>>>>>> 007dbac7432fc4f2aaa4d8db3b3c6022270d936b
                         <button onClick = {handleClick}>Log out</button>
                     </div>)}
                     

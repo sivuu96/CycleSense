@@ -13,7 +13,6 @@ const PeriodCalendar = () => {
 	const [status, setStatus] = useState('')
 	const [showForm, setShowForm] = useState(false)
 
-	//to update
 	const [symptoms, setSymptoms] = useState('');
 	const [isChecked, setIsChecked] = useState(false);
 	const [menstrual_flow, setMenstrualFlow] = useState('')
@@ -29,35 +28,33 @@ const PeriodCalendar = () => {
     };
 
     const tileClassName = ({ date, view }) => {
-			if (date.toDateString() === nextDate.toDateString()) {
-				return 'initial-date';
-			}
-		  
-			const nextDay = new Date(nextDate);
-			nextDay.setDate(nextDay.getDate() + 1);
-			if (date.toDateString() === nextDay.toDateString()) {
-			return 'next-day';
-			}
-			
-			const nnDay = new Date(nextDate);
-			nnDay.setDate(nnDay.getDate() + 2);
-			if (date.toDateString() === nnDay.toDateString()) {
-			return 'nn-day';
-			}
-			
-			const nnnDay = new Date(nextDate);
-			nnnDay.setDate(nnnDay.getDate() + 3);
-			if (date.toDateString() === nnnDay.toDateString()) {
-			return 'nnn-day';
-			}
-			
-			const nnnnDay = new Date(nextDate);
-			nnnnDay.setDate(nnnnDay.getDate() + 4);
-			if (date.toDateString() === nnnnDay.toDateString()) {
-			return 'nnnn-day';
-			}
+		if (date.toDateString() === nextDate.toDateString()) {
+			return 'initial-date';
+		}
 		
-        
+		const nextDay = new Date(nextDate);
+		nextDay.setDate(nextDay.getDate() + 1);
+		if (date.toDateString() === nextDay.toDateString()) {
+		return 'next-day';
+		}
+		
+		const nnDay = new Date(nextDate);
+		nnDay.setDate(nnDay.getDate() + 2);
+		if (date.toDateString() === nnDay.toDateString()) {
+		return 'nn-day';
+		}
+		
+		const nnnDay = new Date(nextDate);
+		nnnDay.setDate(nnnDay.getDate() + 3);
+		if (date.toDateString() === nnnDay.toDateString()) {
+		return 'nnn-day';
+		}
+		
+		const nnnnDay = new Date(nextDate);
+		nnnnDay.setDate(nnnnDay.getDate() + 4);
+		if (date.toDateString() === nnnnDay.toDateString()) {
+		return 'nnnn-day';
+		}
 	}
 		
 	const getStatus = () => {
