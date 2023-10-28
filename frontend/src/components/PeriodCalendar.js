@@ -7,7 +7,7 @@ const PeriodCalendar = () => {
 	const {period,dispatch} = usePeriodContext()
 
 	const periodDate = new Date(period[0].date)
-	const[nextDate, setNextDate]  = useState(new Date(periodDate.setDate(periodDate.getDate() + period[0].length)))
+	const[nextDate, setNextDate]  = useState(new Date(periodDate.setDate(periodDate.getDate() + period[0].length-1)))
 	
     const [selectedDate, setSelectedDate] = useState(nextDate)
 	const [status, setStatus] = useState('')

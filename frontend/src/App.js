@@ -38,27 +38,27 @@ function App() {
 						/>
 						<Route
 							path="/profile"
-							element ={user?<Profile/>:<Navigate to="/signup" />} 
+							element ={user?<Profile/>:<Navigate to="/login" />} 
 						/>
 						<Route
 							path="/aboutus"
-							element ={user?<AboutUs/>:<Navigate to="/signup" />} 
+							element ={user?<AboutUs/>:<Navigate to="/login" />} 
 						/>
 						<Route
-							path="/delprof"
-							element ={user?<DelProf/>:<Navigate to="/signup" />} 
+							path="/delete"
+							element ={user?<DelProf/>:<Navigate to="/login" />} 
 						/>
 						<Route
-							path="/downrep"
-							element ={user?<DownRep/>:<Navigate to="/signup" />} 
+							path="/download"
+							element ={user?<DownRep/>:<Navigate to="/login" />} 
 						/>
 						<Route
-							path="/editprof"
-							element ={user?<EditProf/>:<Navigate to="/signup" />} 
+							path="/edit"
+							element ={user?<EditProf/>:<Navigate to="/login" />} 
 						/>
 						<Route
 							path="/setalarm"
-							element ={user?<SetAlarm/>:<Navigate to="/signup" />} 
+							element ={user?<SetAlarm/>:<Navigate to="/login" />} 
 						/>
 					</Routes>
 				</div>

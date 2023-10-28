@@ -55,7 +55,9 @@ header a {
   grid-template-columns: 3fr 1fr;
   gap: 100px;
 } */
-
+.user-name{
+  margin-right: 20px;
+}
 .checkbox-label {
   display: inline-block;
   margin-right: 10px;
@@ -422,7 +424,7 @@ form.signup, form.login {
   z-index: 1 !important;
 }
 
-.sidenav a {
+.sidenav span {
   padding: 15px 20px 15px 40px;
   text-decoration: none;
   font-size: 18px;
@@ -449,7 +451,7 @@ form.signup, form.login {
   flex-shrink: 0;
 }
 
-.sidenav a:hover {
+.sidenav span:hover {
   color: #3b3b3b;
 }
 
@@ -467,7 +469,7 @@ form.signup, form.login {
   margin-right: auto;
 }
 
-.dumbb {
+.active {
   background-color: #ededed;
   width: 180px;
 }

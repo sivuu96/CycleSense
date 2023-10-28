@@ -30,7 +30,7 @@ const Home = () =>{
         <div className="home">
             <div>
                 {period && period.map((period) =>(
-                    <PeriodCalendar/>
+                    <PeriodCalendar key={period._id}/>
                 ))}
             </div>
         </div>
