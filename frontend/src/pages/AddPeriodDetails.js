@@ -67,7 +67,7 @@ const AddPeriodDetails = () => {
                 className={emptyFields.includes('date') ? 'error' : ''}
             />
 
-            <label>Cycle length:</label>
+            <label>Average Cycle length:</label>
             <input 
                 type="number"
                 onChange={(e) => setLength(e.target.value)}

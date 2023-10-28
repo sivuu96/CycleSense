@@ -29,13 +29,14 @@ const Home = () =>{
 
     return(
         <div className="home">
+            <div>
             {period && period.map((period) =>(
                 <PeriodCalendar key={period._id}/>
             ))}
-            <div className="period">
+            {/* <div className="period">
                 {period && period.map((period) =>(
-                    <PeriodDetails key={period._id} period={period}/>
                 ))}
+            </div>  */}
             </div>
         </div>
     )
