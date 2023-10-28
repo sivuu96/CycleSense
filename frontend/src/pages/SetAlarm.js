@@ -1,14 +1,14 @@
 import {Link} from 'react-router-dom'
 
-const Profile = () => {
+const SetAlarm = () => {
     return(
     <div class="sidenav">
      <img class="logo" src="logo.jpeg" alt="CycleSense"/>
      <Link to='/profile'>
-     <a class="item dumbb" href="profile.html"><img src="prof.png"/>Profile</a>
+     <a class="item" href="profile.html"><img src="prof.png"/>Profile</a>
      </Link>
      <Link to='/setalarm'>
-     <a class="item" href="alarm.html"><img src="alar.png"/>Set Alarm</a>
+     <a class="item dumbb" href="alarm.html"><img src="alar.png"/>Set Alarm</a>
      </Link>
      <Link to='/downrep'>
      <a class="item" href="download.html"><img src="down.png"/>Download Report</a>
@@ -25,4 +25,4 @@ const Profile = () => {
     </div>
     )
 }
-export default Profile
+export default SetAlarm

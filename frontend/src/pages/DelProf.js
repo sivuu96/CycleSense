@@ -1,11 +1,11 @@
 import {Link} from 'react-router-dom'
 
-const Profile = () => {
+const DelProf = () => {
     return(
     <div class="sidenav">
      <img class="logo" src="logo.jpeg" alt="CycleSense"/>
      <Link to='/profile'>
-     <a class="item dumbb" href="profile.html"><img src="prof.png"/>Profile</a>
+     <a class="item" href="profile.html"><img src="prof.png"/>Profile</a>
      </Link>
      <Link to='/setalarm'>
      <a class="item" href="alarm.html"><img src="alar.png"/>Set Alarm</a>
@@ -17,7 +17,7 @@ const Profile = () => {
      <a class="item" href="edit.html"><img src="edit.png"/>Edit Profile</a>
      </Link>
      <Link to='/delprof'>
-     <a class="item" href="delete.html"><img src="delt.png"/>Delete Profile</a>
+     <a class="item dumbb" href="delete.html"><img src="delt.png"/>Delete Profile</a>
      </Link>
      <Link to='/aboutus'>
      <a class="item" href="about.html"><img src="abtu.png"/>About Us</a>
@@ -25,4 +25,4 @@ const Profile = () => {
     </div>
     )
 }
-export default Profile
+export default DelProf

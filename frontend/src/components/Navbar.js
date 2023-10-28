@@ -6,6 +6,7 @@ const NavBar = () => {
     const {logout} = useLogout()
     const {user} = useAuthContext()
 
+    console.log(user)
     const handleClick = () => {
         logout()
     }
@@ -17,7 +18,9 @@ const NavBar = () => {
                 </Link>
                 <nav>
                     {user && (<div>
-                        <span>{user.email}</span>
+                        <Link to = "/profile">
+                            <p>{user.first_name}</p>
+                        </Link>
                         <button onClick = {handleClick}>Log out</button>
                     </div>)}
                     

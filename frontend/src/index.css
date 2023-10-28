@@ -15,6 +15,7 @@ body {
 }
 header {
   background: #fff;
+  z-index: 2 !important;
 }
 header .container {
   max-width: 1400px;
@@ -23,6 +24,8 @@ header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 2 !important;
+  
 }
 header a {
   color: #333;
@@ -406,4 +409,70 @@ form.signup, form.login {
   right: -45%; /* Push 60% of the element outside of the page to the left */
   top: 50%; /* Center vertically on the page */
   transform: translate(0, -50%); 
+}
+.sidenav {
+  height: 100%;
+  width: 270px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  padding-top: 20px;
+  z-index: 1 !important;
+}
+
+.sidenav a {
+  padding: 15px 20px 15px 40px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #384D6C;
+  display: block;
+}
+
+.item img{
+  height: 16px;
+  width: 16px;
+  margin-right: 4px;
+}
+
+.logo {
+  display: block;
+  margin-top: 20%;
+  margin-bottom: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-radius: 50%;
+  width: 123px;
+  height: 123px;
+  flex-shrink: 0;
+}
+
+.sidenav a:hover {
+  color: #3b3b3b;
+}
+
+.main {
+  margin-left: 250px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+  text-align: center;
+}
+
+.dp{
+  margin-top: 5%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dumbb {
+  background-color: #ededed;
+  width: 180px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }

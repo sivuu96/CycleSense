@@ -5,6 +5,12 @@ import Login from './pages/Login.js'
 import Signup from './pages/Signup.js'
 import NavBar from './components/Navbar.js';
 import AddPeriodDetails from './pages/AddPeriodDetails'
+import Profile from './pages/Profile'
+import AboutUs from './pages/AboutUs'
+import DelProf from './pages/DelProf'
+import DownRep from './pages/DownRep'
+import EditProf from './pages/EditProf'
+import SetAlarm from './pages/SetAlarm'
 
 function App() {
 	const {user} = useAuthContext();
@@ -29,6 +35,30 @@ function App() {
 						<Route
 							path="/details"
 							element ={user?<AddPeriodDetails/>:<Navigate to="/signup" />} 
+						/>
+						<Route
+							path="/profile"
+							element ={user?<Profile/>:<Navigate to="/signup" />} 
+						/>
+						<Route
+							path="/aboutus"
+							element ={user?<AboutUs/>:<Navigate to="/signup" />} 
+						/>
+						<Route
+							path="/delprof"
+							element ={user?<DelProf/>:<Navigate to="/signup" />} 
+						/>
+						<Route
+							path="/downrep"
+							element ={user?<DownRep/>:<Navigate to="/signup" />} 
+						/>
+						<Route
+							path="/editprof"
+							element ={user?<EditProf/>:<Navigate to="/signup" />} 
+						/>
+						<Route
+							path="/setalarm"
+							element ={user?<SetAlarm/>:<Navigate to="/signup" />} 
 						/>
 					</Routes>
 				</div>
