@@ -10,6 +10,7 @@ const PeriodCalendar = () => {
 
 	const periodDate = new Date(period[0].next_date)
 	const[nextDate, setNextDate]  = useState(new Date(periodDate.setDate(periodDate.getDate())))
+	const[nextnextDate, setNextNextDate]  = useState(new Date(periodDate.setDate(periodDate.getDate()+period[0].length-1)))
 
     const [selectedDate, setSelectedDate] = useState(nextDate)
 	const [status, setStatus] = useState('')
@@ -24,9 +25,13 @@ const PeriodCalendar = () => {
         setSelectedDate(value);
 		setShowForm(true);
 		setIsChecked(false);
-		setSymptoms('');
-		setMenstrualFlow('');
-		setMood('');
+		
+		console.log(value,nextDate)
+
+		if(value.getTime() === nextDate.getTime()) {
+			setIsChecked(true);
+		}
+
     };
 
     const tileClassName = ({ date, view }) => {
@@ -57,6 +62,34 @@ const PeriodCalendar = () => {
 		if (date.toDateString() === nnnnDay.toDateString()) {
 		return 'nnnn-day';
 		}
+		
+		if (date.toDateString() === nextnextDate.toDateString()) {
+			return 'initial-date';
+		}
+		
+		const nnextDay = new Date(nextnextDate);
+		nnextDay.setDate(nnextDay.getDate() + 1);
+		if (date.toDateString() === nnextDay.toDateString()) {
+		return 'next-day';
+		}
+		
+		const nnDayn = new Date(nextnextDate);
+		nnDayn.setDate(nnDayn.getDate() + 2);
+		if (date.toDateString() === nnDayn.toDateString()) {
+		return 'nn-day';
+		}
+		
+		const nnnDayn = new Date(nextnextDate);
+		nnnDayn.setDate(nnnDayn.getDate() + 3);
+		if (date.toDateString() === nnnDayn.toDateString()) {
+		return 'nnn-day';
+		}
+		
+		const nnnnDayn = new Date(nextnextDate);
+		nnnnDayn.setDate(nnnnDayn.getDate() + 4);
+		if (date.toDateString() === nnnnDayn.toDateString()) {
+		return 'nnnn-day';
+		}
 	}
 		
 	const getStatus = () => {
@@ -83,17 +116,23 @@ const PeriodCalendar = () => {
 			if(today.toDateString() === nextDate.toDateString()){
 				setStatus('Your Periods have started')
 			}
-			if(today.toDateString() === nextDay.toDateString()){
+			else if(today.toDateString() === nextDay.toDateString()){
 				setStatus('You are on your Second Day of Periods')
 			}
-			if(today.toDateString() === nnDay.toDateString()){
+			else if(today.toDateString() === nnDay.toDateString()){
 				setStatus('You are on your Third Day of Periods')
 			}
-			if(today.toDateString() === nnnDay.toDateString()){
+			else if(today.toDateString() === nnnDay.toDateString()){
 				setStatus('You are on your Fourth Day of Periods')
 			}
-			if(today.toDateString() === nnnnDay.toDateString()){
+			else if(today.toDateString() === nnnnDay.toDateString()){
 				setStatus('You are on your Fifth Day of Periods')
+			}
+			else{
+				const timeDifference = nextnextDate.getTime() - today.getTime();
+				const d = timeDifference / (1000 * 60 * 60 * 24);
+
+				setStatus('You can expect your periods in ' +Math.ceil(d)+ ' days')
 			}
 		}
     };
@@ -106,10 +145,9 @@ const PeriodCalendar = () => {
 		
 		setShowForm(false)
 		setIsChecked(false);
-		setSymptoms('');
-		setMenstrualFlow('');
-		setMood('');
 		setNextDate(new Date(selectedDate));
+		const nd = new Date(selectedDate)
+		setNextNextDate(new Date(nd.setDate(nd.getDate() + period[0].length)));
 		getStatus()
 
 		setNextDate(new Date(selectedDate))	

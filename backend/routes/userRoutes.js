@@ -4,6 +4,7 @@ import { createRequire } from 'module';
 
 const require = createRequire(import.meta.url);
 const jwt = require('jsonwebtoken');
+import mongoose from 'mongoose';
 
 const router = express.Router();
 
@@ -42,6 +43,20 @@ router.post('/signup',async(req,res) => {
     catch(e){
         res.status(400).json({error:e.message});
     }
+})
+
+router.delete('/delete/:id', async (req, res) => {
+    const { id } = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).json({error: 'No such workout'})
+    }
+
+    const user = await User.findOneAndDelete({_id: id})
+    if (!user) {
+      return res.status(400).json({error: 'No such user'})
+    }
+    res.status(200).json(user)
 })
 
 

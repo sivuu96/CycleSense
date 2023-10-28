@@ -56,4 +56,18 @@ router.put('/update/:id',async(req,res)=>{
     return res.json(updatedPeriod)
 })
 
+router.delete('/delete/:id', async (req, res) => {
+    const { id } = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).json({error: 'No such workout'})
+    }
+
+    const period = await Period.findOneAndDelete({_id: id})
+    if (!period) {
+      return res.status(400).json({error: 'No such period'})
+    }
+    res.status(200).json(period)
+})
+
 export default router;
