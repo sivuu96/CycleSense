@@ -12,19 +12,20 @@ body {
   height: 100vh;
   /*overflow-x: hidden;*/
   overflow-x: hidden;
+  z-index:1;
 }
 header {
   background: #fff;
-  z-index: 2 !important;
 }
 header .container {
+  position: relative;
   max-width: 1400px;
   margin: 0 auto;
   padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 2 !important;
+  z-index: 3 !important;
   
 }
 header a {
@@ -421,7 +422,7 @@ form.signup, form.login {
   background-color: #fff;
   overflow-x: hidden;
   padding-top: 20px;
-  z-index: 1 !important;
+  z-index: 2 !important;
 }
 
 .sidenav span {

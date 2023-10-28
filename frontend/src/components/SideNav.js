@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 const SideNav = () => {
     return(
         <div className="sidenav">
-            <Link to="/">
-                <img className="logo" src="logo.jpeg" alt="CycleSense"/>
-            </Link>
+            <br/><br/>
+            <br/><br/>
+            <br/><br/>
             <Link to='/profile'>
                 <span className="item active" href="profile.html"><img src="prof.png"/>Profile</span>
             </Link>
