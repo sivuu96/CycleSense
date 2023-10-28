@@ -16,9 +16,11 @@ router.post('/login',async(req,res) => {
     const {email,password} = req.body
     try{
         const user = await User.login(email,password)
+        const id = user._id
+        const name = user.first_name
 
         const token = createToken(user._id)
-        res.status(200).json({email,token})
+        res.status(200).json({email,token,id,name})
     }
     catch(err){
         res.status(400).json({error:err.message});
@@ -33,7 +35,8 @@ router.post('/signup',async(req,res) => {
         const user = await User.signup(email,password,first_name,last_name,phone);
         
         const token = createToken(user._id)
-        res.status(200).json({email,token,first_name,last_name,phone});
+        const id = user._id
+        res.status(200).json({email,token,first_name,last_name,phone,id});
     }
     catch(e){
         res.status(400).json({error:e.message});

@@ -52,7 +52,9 @@ header a {
   grid-template-columns: 3fr 1fr;
   gap: 100px;
 } */
-
+.user-name{
+  margin-right: 20px;
+}
 .checkbox-label {
   display: inline-block;
   margin-right: 10px;
