@@ -8,7 +8,6 @@ const PeriodCalendar = () => {
 
 	const periodDate = new Date(period[0].date)
 	const[nextDate, setNextDate]  = useState(new Date(periodDate.setDate(periodDate.getDate() + period[0].length)))
-	// setNextDate(periodDate.getDate() + period[0].length);
 	
     const [selectedDate, setSelectedDate] = useState(nextDate)
 	const [status, setStatus] = useState('')
@@ -18,12 +17,8 @@ const PeriodCalendar = () => {
 	const [isChecked, setIsChecked] = useState(false);
 	const [menstrual_flow, setMenstrualFlow] = useState('')
 	const [mood, setMood] = useState('')
-	const [weekChange, setWeekChange] = useState(false)
-
-	const [reload, setReload] = useState(0)
 
     const onClickDayHandler = (value, event) => {
-		setWeekChange(false)
         setSelectedDate(value);
 		setShowForm(true);
 		setIsChecked(false);
@@ -104,7 +99,7 @@ const PeriodCalendar = () => {
     };
 	useEffect(()=>{
 		getStatus();
-	},[])
+	})
 
 	const handleSubmit = async (e)=>{
 		e.preventDefault();
@@ -115,8 +110,7 @@ const PeriodCalendar = () => {
 		setMenstrualFlow('');
 		setMood('');
 		setNextDate(new Date(selectedDate));
-
-		setWeekChange(true);
+		getStatus()
 	}
 
 	const handleCheckChange = ()=>{
@@ -132,7 +126,7 @@ const PeriodCalendar = () => {
 						value={selectedDate}
 						onClickDay={onClickDayHandler}
 						tileClassName={tileClassName}
-						key={reload}
+						key={period._id}
 					/>
 				))}
 				<div>

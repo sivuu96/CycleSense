@@ -1,5 +1,4 @@
 import { useEffect } from "react"
-import PeriodDetails from "../components/PeriodDetails.js"
 import {useAuthContext} from '../hooks/useAuthContext.js'
 import { usePeriodContext } from "../hooks/usePeriodContext.js"
 import PeriodCalendar from "../components/PeriodCalendar.js"
@@ -30,13 +29,9 @@ const Home = () =>{
     return(
         <div className="home">
             <div>
-            {period && period.map((period) =>(
-                <PeriodCalendar key={period._id}/>
-            ))}
-            {/* <div className="period">
                 {period && period.map((period) =>(
+                    <PeriodCalendar key={period._id}/>
                 ))}
-            </div>  */}
             </div>
         </div>
     )
