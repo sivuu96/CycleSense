@@ -43,8 +43,7 @@ router.get('/all',async(req, res)=>{
 router.put('/update/:id',async(req,res)=>{
     const {id} = req.params
     const updatedFields = req.body
-
-    console.log(updatedFields)
+    
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: 'Invalid id'})
     }

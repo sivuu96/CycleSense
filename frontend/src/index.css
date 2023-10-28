@@ -527,3 +527,8 @@ form.signup, form.login {
   height:30px;
   border: 2px solid #645CBB;
 }
+
+.edit-form{
+  width: 60%;
+  margin-left: 300px;
+}
