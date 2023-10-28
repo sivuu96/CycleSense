@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import { useSignup } from '../hooks/useSignup'
-
+import {Link} from 'react-router-dom'
 const Signup = () => {
 
     const [email,setEmail] = useState('')
@@ -18,6 +18,12 @@ const Signup = () => {
     }
 
     return(
+        <div>
+            <div className="overflow-container">
+            <div className="circleBase circle3"></div>
+            <div className="circleBase circle2"></div>
+            <div className="circleBase circle1"></div>
+            </div>
         <form className='signup' onSubmit={handleSubmit}>
             <h3>Sign Up</h3>
 
@@ -54,7 +60,14 @@ const Signup = () => {
 
             <button disabled={isLoading}>Submit</button>
             {error &&<div className='error'>{error}</div>}
+            <div>
+            <p style={{display:"inline-block"}}>Already a Member?&nbsp;</p>
+            <Link to = "/login">
+            <p style={{display:"inline-block"}}>Log In</p>
+            </Link>
+            </div>
         </form>
+        </div>
     )
 }
 
