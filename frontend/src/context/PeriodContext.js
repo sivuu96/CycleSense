@@ -12,6 +12,10 @@ export const periodReducer = (state,action) => {
             return {
               period: [action.payload]
             }
+        case 'UPDATE_PERIOD':
+            return{
+                period:[action.payload]
+            }
         default:
             return state
     }

@@ -9,11 +9,12 @@ const AddPeriodDetails = () => {
     const {dispatch} = usePeriodContext();
     const {user} = useAuthContext();
 
-    const [date, setDate] = useState('');
+    const [date, setDate] = useState(new Date());
     const [length, setLength] = useState(0);
     const [symptoms, setSymptoms] = useState('');
     const [menstrual_flow, setMenstrual_flow] = useState('');
     const [mood, setMood] = useState('');
+    const [next_date, setNextDate] = useState(new Date());
 
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
@@ -26,7 +27,11 @@ const AddPeriodDetails = () => {
           return
         }
 
-        const period = {date, length, symptoms, menstrual_flow, mood}
+        const newDate = new Date(date);
+        const nextDate = new Date(newDate)
+        nextDate.setDate(newDate.getDate() + parseInt(length ) - 1);
+        setNextDate(nextDate)
+        const period = {date, length, symptoms, menstrual_flow, mood, next_date:nextDate}
 
         const response = await fetch('/period',{
             method: 'POST',
@@ -43,11 +48,12 @@ const AddPeriodDetails = () => {
             setEmptyFields(json.emptyFields)
         }
         if (response.ok) {
-            setDate('')
+            setDate(new Date())
             setLength(0)
             setSymptoms('')
             setMenstrual_flow('')
             setMood('')
+            setNextDate(new Date())
             setError(null)
             setEmptyFields([])
             dispatch({type: 'ADD_PERIOD', payload: json})

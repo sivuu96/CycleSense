@@ -25,6 +25,9 @@ const periodSchema = mongoose.Schema(
         user_id:{
             type:String,
             required:true
+        },
+        next_date :{
+            type:Date,
         }
     },
     {

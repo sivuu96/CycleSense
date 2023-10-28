@@ -1,14 +1,16 @@
 import Calendar from 'react-calendar'
 import { useEffect, useState } from 'react'
 import { usePeriodContext } from "../hooks/usePeriodContext.js"
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const PeriodCalendar = () => {
 
 	const {period,dispatch} = usePeriodContext()
+    const {user} = useAuthContext();
 
-	const periodDate = new Date(period[0].date)
-	const[nextDate, setNextDate]  = useState(new Date(periodDate.setDate(periodDate.getDate() + period[0].length-1)))
-	
+	const periodDate = new Date(period[0].next_date)
+	const[nextDate, setNextDate]  = useState(new Date(periodDate.setDate(periodDate.getDate())))
+
     const [selectedDate, setSelectedDate] = useState(nextDate)
 	const [status, setStatus] = useState('')
 	const [showForm, setShowForm] = useState(false)
@@ -109,6 +111,26 @@ const PeriodCalendar = () => {
 		setMood('');
 		setNextDate(new Date(selectedDate));
 		getStatus()
+
+		setNextDate(new Date(selectedDate))	
+		const nextDay = new Date(selectedDate)
+		const updatedPeriod = {symptoms, menstrual_flow, mood, next_date:nextDay}
+
+		const response = await fetch('/period/update/' +period[0]._id,{
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': `Bearer ${user.token}`
+			},
+			body:JSON.stringify(updatedPeriod)
+		})
+
+		const json = await response.json()
+
+		if(response.ok) {
+			dispatch({type:'UPDATE_PERIOD', payload:json})
+		}
+
 	}
 
 	const handleCheckChange = ()=>{
