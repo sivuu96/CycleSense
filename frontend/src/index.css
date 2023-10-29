@@ -438,6 +438,9 @@ form.signup, form.login {
   padding-top: 20px;
   z-index: 2 !important;
 }
+.sidenav a {
+  text-decoration: none;
+}
 
 .sidenav span {
   padding: 15px 20px 15px 40px;
@@ -487,6 +490,8 @@ form.signup, form.login {
 .active {
   background-color: #ededed;
   width: 180px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 @media screen and (max-height: 450px) {
