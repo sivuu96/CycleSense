@@ -29,6 +29,10 @@ const periodSchema = mongoose.Schema(
         },
         next_date :{
             type:Date,
+        },
+        toggle :{
+            type:Boolean,
+            default:false
         }
     },
     {
