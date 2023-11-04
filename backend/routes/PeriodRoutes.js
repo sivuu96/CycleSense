@@ -39,7 +39,7 @@ router.get('/all',async(req, res)=>{
         return res.status(200).json(periods);
     }
     catch(err){
-        console.log(e.message);
+        console.log(err.message);
         res.status(500).send({message:e.message});
     }
 });
