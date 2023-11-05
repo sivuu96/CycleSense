@@ -2,7 +2,10 @@ import express from 'express';
 import {Period} from '../schema/period.js'
 import requireAuth from '../middleware/requireAuth.js';
 import mongoose from 'mongoose';
-import nodemailer from 'nodemailer'
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
+const nodemailer = require('nodemailer');
 
 const router = express.Router();
 router.use(requireAuth)
@@ -36,7 +39,7 @@ router.get('/all',async(req, res)=>{
         return res.status(200).json(periods);
     }
     catch(err){
-        console.log(err.message);
+        console.log(e.message);
         res.status(500).send({message:e.message});
     }
 });

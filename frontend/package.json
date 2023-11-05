@@ -1,8 +1,7 @@
 {
-  "proxy": "https://cyclesense.azurewebsites.net",
+  "proxy": "http://localhost:5555",
   "name": "frontend",
   "version": "0.1.0",
-  "type": "module",
   "private": true,
   "dependencies": {
     "@react-pdf-viewer/core": "^3.12.0",
