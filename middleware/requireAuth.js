@@ -1,8 +1,5 @@
 import {User} from '../schema/user.js'
-import { createRequire } from 'module';
-
-const require = createRequire(import.meta.url);
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken'
 
 const requireAuth = async(req, res, next) => {
 

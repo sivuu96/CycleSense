@@ -1,9 +1,6 @@
 import express from 'express';
 import {User} from '../schema/user.js'
-import { createRequire } from 'module';
-
-const require = createRequire(import.meta.url);
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken'
 import mongoose from 'mongoose';
 
 const router = express.Router();

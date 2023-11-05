@@ -2,10 +2,7 @@ import express from 'express';
 import {Period} from '../schema/period.js'
 import requireAuth from '../middleware/requireAuth.js';
 import mongoose from 'mongoose';
-import { createRequire } from 'module';
-
-const require = createRequire(import.meta.url);
-const nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer'
 
 const router = express.Router();
 router.use(requireAuth)
