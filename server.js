@@ -4,6 +4,7 @@ import mongoose from 'mongoose'
 import userRoutes from './routes/userRoutes.js'
 import PeriodRoutes from './routes/PeriodRoutes.js'
 import cors from 'cors';
+import path from 'path'
 
 const app = express();
 
@@ -34,3 +35,8 @@ mongoose
         console.log(`Error: ${error}`);
     });
 
+//production script
+app.use(express.static("./frontend/build"))
+app.get("*", (req, res) =>{
+    res.sendFile(path.resolve(__dirname, "frontend","build","index.html"))
+})
