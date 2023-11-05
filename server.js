@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 import userRoutes from './backend/routes/userRoutes.js'
 import PeriodRoutes from './backend/routes/PeriodRoutes.js'
 import cors from 'cors';
-import path from path
+import path from 'path'
 
 const app = express();
 
