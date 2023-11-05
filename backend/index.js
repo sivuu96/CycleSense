@@ -1,10 +1,9 @@
 import express from "express";
-import {PORT,mongoDBURL} from "./backend/config.js"
+import {PORT,mongoDBURL} from "./config.js"
 import mongoose from 'mongoose'
-import userRoutes from './backend/routes/userRoutes.js'
-import PeriodRoutes from './backend/routes/PeriodRoutes.js'
+import userRoutes from './routes/userRoutes.js'
+import PeriodRoutes from './routes/PeriodRoutes.js'
 import cors from 'cors';
-import path from 'path'
 
 const app = express();
 
@@ -35,7 +34,3 @@ mongoose
         console.log(`Error: ${error}`);
     });
 
-app.use(express.static("./frontend/build"))
-app.get("*",(req,res)=>{
-    res.sendFile(path.resolve(__dirname,"frontend","build","index.html"))
-})
