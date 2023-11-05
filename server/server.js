@@ -4,11 +4,11 @@ import mongoose from 'mongoose'
 import userRoutes from './routes/userRoutes.js'
 import PeriodRoutes from './routes/PeriodRoutes.js'
 import cors from 'cors';
-
 const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static('public'))
 
 app.get('/', (req, res) => {
     console.log(req);
