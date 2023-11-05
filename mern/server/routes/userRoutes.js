@@ -12,7 +12,7 @@ const createToken = (_id) =>{
     return jwt.sign({_id},'asdasdwebPsuxsfasf',{expiresIn: '3d'})
 }
 
-router.post('/login',async(req,res) => {
+router.route('/login').post(async(req,res) => {
 
     const {email,password} = req.body
     try{
@@ -32,7 +32,7 @@ router.post('/login',async(req,res) => {
     
 })
 
-router.post('/signup',async(req,res) => {
+router.route('/signup').post(async(req,res) => {
 
     const {email,password,first_name,last_name,phone} = req.body
     try{
@@ -47,7 +47,7 @@ router.post('/signup',async(req,res) => {
     }
 })
 
-router.delete('/delete/:id', async (req, res) => {
+router.route('/delete/:id').delete( async (req, res) => {
     const { id } = req.params
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -61,7 +61,7 @@ router.delete('/delete/:id', async (req, res) => {
     res.status(200).json(user)
 })
 
-router.put('/update/:id',async(req,res)=>{
+router.route('/update/:id').put(async(req,res)=>{
     const {id} = req.params
     const updatedFields = req.body
 
@@ -78,7 +78,7 @@ router.put('/update/:id',async(req,res)=>{
     return res.json(updatedUser)
 })
 
-router.get('/all',async(req, res)=>{
+router.route('/all').get(async(req, res)=>{
     try{
         const users = await User.find({})
         return res.status(200).json(users);

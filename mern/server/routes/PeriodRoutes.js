@@ -10,7 +10,7 @@ const nodemailer = require('nodemailer');
 const router = express.Router();
 router.use(requireAuth)
 
-router.post('/',async(req,res)=>{
+router.route('/').post(async(req,res)=>{
     try{
         const user_id = req.user._id
 
@@ -32,7 +32,7 @@ router.post('/',async(req,res)=>{
     }
 });
 
-router.get('/all',async(req, res)=>{
+router.route('/all').get(async(req, res)=>{
     const user_id = req.user._id
     try{
         const periods = await Period.find({user_id})
@@ -43,7 +43,7 @@ router.get('/all',async(req, res)=>{
         res.status(500).send({message:e.message});
     }
 });
-router.post('/sendemail',async(req,res)=>{
+router.route('/sendemail').post(async(req,res)=>{
     const email=req.body.mail
 
     const transporter = nodemailer.createTransport({
@@ -73,7 +73,7 @@ router.post('/sendemail',async(req,res)=>{
 }
 );
 
-router.put('/update/:id',async(req,res)=>{
+router.route('/update/:id').put(async(req,res)=>{
     const {id} = req.params
     const updatedFields = req.body
     
@@ -88,7 +88,7 @@ router.put('/update/:id',async(req,res)=>{
     return res.json(updatedPeriod)
 })
 
-router.delete('/delete/:id', async (req, res) => {
+router.route('/delete/:id').delete( async (req, res) => {
     const { id } = req.params
 
     if (!mongoose.Types.ObjectId.isValid(id)) {

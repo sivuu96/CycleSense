@@ -1,5 +1,7 @@
 import express from "express";
-import {PORT,mongoDBURL} from "./config.js"
+require("dotenv").config({ path: "./config.env" });
+const PORT = process.env.PORT || 5555;
+const mongoDBURL = process.env.mongoDBURL
 import mongoose from 'mongoose'
 import userRoutes from './routes/userRoutes.js'
 import PeriodRoutes from './routes/PeriodRoutes.js'
